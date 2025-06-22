@@ -1,5 +1,4 @@
 import allure
-
 from locators.main_page_locators import MainLocators
 from urls import Urls
 from pages.base_page import BasePage
@@ -55,3 +54,10 @@ class MainPage(BasePage):
         return super().wait_for_updated_order_number(
             number_locator=MainLocators.LOCATOR_GET_ORDER_NUMBER
         )
+    @allure.step('Перетаскиваем ингредиент в корзину')
+    def put_ingredient_into_basket(self):
+        self.drag_and_drop_element(MainLocators.LOCATOR_INGREDIENT, MainLocators.LOCATOR_OF_SELECTED)
+
+    @allure.step('Получаем текст счетчика ингредиента')
+    def get_text_counter_ingredient(self):
+        return self.get_text_from_element(MainLocators.LOCATOR_COUNTER_INGREDIENT)

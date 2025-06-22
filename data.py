@@ -7,3 +7,5 @@ class Data:
         "password": f'{random.randint(100000, 999999)}',
         "name": f'ivan{random.randint(100, 999)}'
     }
+
+    expected_count = '2'

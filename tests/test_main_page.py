@@ -1,4 +1,5 @@
 import allure
+from data import Data
 from pages.main_page import MainPage
 
 
@@ -37,4 +38,13 @@ class TestMainPage:
         page.close_modal_if_present()
         page.open_window_ingredient_detail_sauce()
         page.close_window_ingredient_detail_sauce()
-        assert  page.window_ingredient_detail_sauce_not_visible()
+        assert page.window_ingredient_detail_sauce_not_visible()
+
+    @allure.title('Счетчик ингредиента увеличивается при добавлении его в заказ')
+    def test_counter_increases_by_adding_in_order(self, driver):
+        page = MainPage(driver)
+        page.close_modal_if_present()
+        page.put_ingredient_into_basket()
+        expected_result = Data.expected_count
+        actual_result = page.get_text_counter_ingredient()
+        assert actual_result == expected_result

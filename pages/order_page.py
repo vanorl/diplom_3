@@ -1,6 +1,4 @@
 import allure
-
-from selenium.webdriver.support.wait import WebDriverWait
 from locators.main_page_locators import MainLocators
 from locators.order_page_locators import OrderLocators
 from pages.account_page import AccountPage

@@ -17,3 +17,6 @@ class MainLocators:
     LOCATOR_GET_ORDER_NUMBER = By.CSS_SELECTOR, '.Modal_modal__title_shadow__3ikwq'
     LOCATOR_CLOSE_ORDER_WINDOW = By.XPATH, "//button[contains(@class, 'Modal_modal__close')]"
     LOCATOR_OVERLAY_WINDOW_ORDER = By.CLASS_NAME, "Modal_modal_overlay__x2ZCr"
+    LOCATOR_INGREDIENT = [By.XPATH, '//img[@alt="Флюоресцентная булка R2-D3"]']
+    LOCATOR_COUNTER_INGREDIENT = [By.XPATH, '//a[@href="/ingredient/61c0c5a71d1f82001bdaaa6d"]'
+                                    '//p[@class="counter_counter__num__3nue1"]']
