@@ -8,22 +8,22 @@ from selenium.webdriver.chrome.options import Options
 
 @pytest.fixture(params=["chrome", "firefox"])
 def driver(request):
-	if request.param == "chrome":
-		chrome_options = Options()
-		#закрыть сообщение об утечке паролей
-		chrome_options.add_experimental_option("prefs", {
-			"profile.password_manager_leak_detection": False
-		})
-		driver = webdriver.Chrome(options=chrome_options)
-		driver.set_window_size(1920, 1080)
+    if request.param == "chrome":
+        chrome_options = Options()
+        #закрыть сообщение об утечке паролей
+        chrome_options.add_experimental_option("prefs", {
+            "profile.password_manager_leak_detection": False
+        })
+        driver = webdriver.Chrome(options=chrome_options)
+        driver.set_window_size(1920, 1080)
 
-	elif request.param == "firefox":
-		driver = webdriver.Firefox()
-		driver.set_window_size(1920, 1080)
+    elif request.param == "firefox":
+        driver = webdriver.Firefox()
+        driver.set_window_size(1920, 1080)
 
-	driver.get(Urls.URL_HOME_PAGE_STELLAR_BURGERS)
-	yield driver
-	driver.quit()
+    driver.get(Urls.URL_HOME_PAGE_STELLAR_BURGERS)
+    yield driver
+    driver.quit()
 
 
 @pytest.fixture
