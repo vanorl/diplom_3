@@ -18,7 +18,7 @@ class MainPage(BasePage):
     def transition_to_constructor(self):
         self.click_on_element(MainLocators.LOCATOR_PERSONAL_ACCOUNT)
         self.click_on_element(MainLocators.LOCATOR_BUTTON_CONSTRUCTOR)
-        return self.driver.current_url
+        return self.get_current_url()
 
     @allure.step('Ожидаемый URL Конструктор')
     def expected_url_constructor(self):
@@ -27,7 +27,7 @@ class MainPage(BasePage):
     @allure.step('Переход на вкладку Лента заказов и текущий URL')
     def transition_to_order_feed(self):
         self.click_on_element(MainLocators.LOCATOR_BUTTON_ORDER_FEED)
-        return self.driver.current_url
+        return self.get_current_url()
 
     @allure.step('Ожидаемый URL Лента заказов')
     def expected_url_order_feed(self):

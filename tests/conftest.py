@@ -3,13 +3,12 @@ from selenium import webdriver
 from data import Data
 from helper import UserMethods
 from urls import Urls
+from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture(params=["chrome", "firefox"])
 def driver(request):
-
 	if request.param == "chrome":
-		from selenium.webdriver.chrome.options import Options
 		chrome_options = Options()
 		#закрыть сообщение об утечке паролей
 		chrome_options.add_experimental_option("prefs", {
